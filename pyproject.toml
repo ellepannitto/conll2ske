@@ -1,0 +1,97 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.envs.static]
+dev-mode = true
+dev-mode-dirs = ["."]
+
+[project]
+name = "conll2ske"
+description = "Simple suite to convert CoNLL format into Sketch Engige input"
+readme = "README.md"
+license-files = { paths = ["LICENSE"] }
+requires-python = ">=3.8"
+authors = [
+  { name = "Ludovica Pannitto", email = "ludovica.pannitto@unibo.it" },
+  { name= "Arianna Bienati" },
+  { name= "Greta Franzini" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3.8",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+	"argcomplete>=3"
+]
+version = "0.0.1"
+# dynamic = ["version"]
+
+
+[project.scripts]
+conll2ske = "conll2ske.main:main"
+
+# [tool.hatch.version]
+# source = "vcs"
+
+# [tool.hatch.version.raw-options]
+# version_scheme = "python-simplified-semver"
+# local_scheme = "no-local-version"
+# parentdir_prefix_version = "hatch-"
+# git_describe_command = ["git", "describe", "--dirty", "--tags", "--long", "--match", "hatch-v*"]
+
+# [tool.hatch.build.hooks.vcs]
+# version-file = "src/hatch/_version.py"
+
+# [tool.hatch.build.targets.sdist]
+# exclude = [
+#   "/.github",
+#   "/backend",
+#   "/scripts",
+# ]
+
+# [tool.mypy]
+# disallow_untyped_defs = false
+# disallow_incomplete_defs = false
+# enable_error_code = ["ignore-without-code", "truthy-bool"]
+# follow_imports = "normal"
+# ignore_missing_imports = true
+# pretty = true
+# show_column_numbers = true
+# warn_no_return = false
+# warn_unused_ignores = true
+
+# [[tool.mypy.overrides]]
+# module = [
+#     "*.hatchling.*",
+#     "*.hatch.utils.*",
+# ]
+# disallow_untyped_defs = true
+# disallow_incomplete_defs = true
+# warn_no_return = true
+
+# [tool.coverage.run]
+# branch = true
+# source_pkgs = ["hatch", "hatchling", "tests"]
+# omit = [
+#   "backend/src/hatchling/__main__.py",
+#   "backend/src/hatchling/bridge/*",
+#   "backend/src/hatchling/cli/dep/*",
+#   "backend/src/hatchling/ouroboros.py",
+#   "src/hatch/__main__.py",
+#   "src/hatch/cli/new/migrate.py",
+#   "src/hatch/project/frontend/scripts/*",
+#   "src/hatch/utils/shells.py",
+# ]
+
+# [tool.coverage.paths]
+# hatch = ["src/hatch", "*/hatch/src/hatch"]
+# hatchling = ["backend/src/hatchling", "*/hatch/backend/src/hatchling"]
+# tests = ["tests", "*/hatch/tests"]
+
+# [tool.coverage.report]
+# exclude_lines = [
+#   "no cov",
+#   "if __name__ == .__main__.:",
+#   "if TYPE_CHECKING:",
+# ]
