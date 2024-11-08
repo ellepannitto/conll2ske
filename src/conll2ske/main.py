@@ -43,7 +43,7 @@ def main():
 							    type=os.path.abspath,
 								default=".",
 								help="Output directory. Default: Current directory.")
-	parser_convert.add_argument("-i", "--input-file",
+	parser_convert.add_argument("-i", "--input-files",
 							    type=os.path.abspath,
 								nargs="+",
 								help="Input text files.")
