@@ -1,0 +1,76 @@
+# This is an example registry file for (no)SkE
+#
+# See https://www.sketchengine.eu/documentation/corpus-configuration-file-all-features/
+# for all availbale options.
+#
+# FIXME: currently, this is an almost 1:1 copy from an automatically generated
+# version - reduced to the point where 'it just worked'(tm)
+#   - disentangle the 'fixed' (not to be edited part, at least, for SkE) and
+#     the 'open' part
+#   - add/remove sane features
+#   - make suggestions for noSkE and SkE
+# 
+
+DOCSTRUCTURE "doc"
+ENCODING "UTF-8"
+# arbitrary corpus information like source, size etc. There is no automatic
+# processing of this data. If the value begins with the “@” character the rest
+# is taken as a full path of a file containing INFO data
+INFO "INFO"
+LANGUAGE "English"
+LPOSLIST ",adjective,-j,adverb,-a,conjunction,-c,noun,-n,preposition,-i,pronoun,-d,verb,-v,numeral,-m"
+# name of the corpus; defaults to the corpus config filename
+NAME "NAME"
+# full path of the corpus home directory which contains all data files
+PATH "PATH"
+REFCORPUS "ententen21_tt31"
+TAGSETDOC "https://www.sketchengine.eu/english-treetagger-pipeline-3/"
+TERMBASE	"none"
+TERMDEF	""
+VERTICAL "PATH OR |"
+WPOSLIST ",adjective,J.*,adverb,RB.?,conjunction,CC,determiner,DT,noun,N.*,numeral,CD,particle,RP,preposition,IN,pronoun,PP.?,verb,V.*"
+WSATTR "lempos"
+WSDEF "/corpora/wsdef/english-penn_tt-3.3.wsdef.m4"
+#
+### END 'FIXED' CONTENT
+
+
+### BEGIN 'OPEN' CONTENT
+# 
+#
+ATTRIBUTE "word" {
+    MAPTO "lempos"
+}
+ATTRIBUTE "tag" {
+}
+ATTRIBUTE "lempos" {
+}
+ATTRIBUTE "feats" {
+}
+ATTRIBUTE "deprel" {
+}
+
+ATTRIBUTE "lempos_lc" {
+    DYNAMIC "utf8lowercase"
+    DYNLIB "internal"
+    DYNTYPE "freq"
+    FROMATTR "lempos"
+    FUNTYPE "0"
+    LABEL "lempos (lowercase)"
+    TRANSQUERY "yes"
+}
+
+ATTRIBUTE "lc" {
+    DYNAMIC "utf8lowercase"
+    DYNLIB "internal"
+    DYNTYPE "freq"
+    FROMATTR "word"
+    FUNTYPE "0"
+    LABEL "word (lowercase)"
+    TRANSQUERY "yes"
+}
+STRUCTURE "s" {
+}
+STRUCTURE "doc" {
+    ENCODING "UTF-8"
+}
