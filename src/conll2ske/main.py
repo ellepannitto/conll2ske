@@ -15,7 +15,7 @@ def _convert(args):
 
     # Use tqdm for progress tracking if there are multiple files
     for input_file in tqdm(args.input_files, desc="Converting files"):
-        output_file = os.path.join(args.output_dir, os.path.basename(input_file) + ".vert")
+        output_file = os.path.join(args.output_dir, os.path.basename(input_file).replace('.conllu', '.vert'))
         process.transform_conllu_to_vert(input_file, output_file)
         print(f"Converted {input_file} to {output_file}")
 
