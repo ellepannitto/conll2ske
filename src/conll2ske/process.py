@@ -3,13 +3,15 @@ def foo(to_print):
 
 # Define the function to transform CoNLL-U to the specified format
 def transform_conllu_to_vert(input_file, output_file):
-    with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', encoding='utf-8') as outfile:
+    with open(input_file, 'r', encoding='utf-8') as infile, \
+        open(output_file, 'w', encoding='utf-8') as outfile:
         sentence_id = None  # initialise sentence tracking
 
         # Write the opening <doc> tag
         outfile.write("<doc>\n")
 
-        for line in infile:  # iterate over each line in the file, stripping whitespace from each line to prep it for transformation
+        for line in infile:  # iterate over each line in the file,
+                             # stripping whitespace from each line to prep it for transformation
             line = line.strip()
 
             # Check if the line indicates a new sentence
