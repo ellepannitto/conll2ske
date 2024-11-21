@@ -24,13 +24,15 @@ def transform_conllu_to_vert(input_file, output_file):
             elif line:
                 # Process each word line (non-empty, non-comment line)
                 fields = line.split('\t')
+                # Columns: id, form, lemma, upos, xpos, feats, head, deprel, deps, misc
                 word_data = [
-                    fields[0],       # ID
+                    #fields[0],       # ID
                     fields[1],       # FORM
-                    fields[2],       # LEMMA
                     fields[3],       # UPOS
+                    fields[2],       # LEMMA
+                    #fields[4],       # XPOS
                     fields[5],       # FEATS
-                    fields[6],       # HEAD
+                    #fields[6],       # HEAD
                     fields[7]        # DEPREL
                 ]
                 outfile.write("\t".join(word_data) + "\n")
