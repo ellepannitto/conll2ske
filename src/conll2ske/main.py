@@ -1,6 +1,6 @@
+import os
 import argparse
 import argcomplete
-import os
 
 from tqdm.auto import tqdm
 
@@ -15,7 +15,8 @@ def _convert(args):
 
     # Use tqdm for progress tracking if there are multiple files
     for input_file in tqdm(args.input_files, desc="Converting files"):
-        output_file = os.path.join(args.output_dir, os.path.basename(input_file).replace('.conllu', '.vert'))
+        output_file = os.path.join(args.output_dir,
+                                   os.path.basename(input_file).replace('.conllu', '.vert'))
         process.transform_conllu_to_vert(input_file, output_file)
         print(f"Converted {input_file} to {output_file}")
 
@@ -23,7 +24,7 @@ def main():
 	parser = argparse.ArgumentParser(
             description= "Convert CoNLL-U files to SketchEngine compatible formats",
             add_help=True)
-	
+
 	argcomplete.autocomplete(parser)
 
 	subparsers = parser.add_subparsers(title="actions", dest="actions")
@@ -34,8 +35,8 @@ def main():
 	parser_prova.add_argument("-n", "--name", type=str, required=True,
 						   help="your name")
 	parser_prova.set_defaults(func=_prova)
-    
-	
+
+
 	parser_convert = subparsers.add_parser('convert',
                                            description='Convert CoNLL-U file to VERT format',
                                            help='Convert CoNLL-U file to VERT format')
