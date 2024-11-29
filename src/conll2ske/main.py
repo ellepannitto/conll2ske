@@ -80,8 +80,8 @@ def main() -> None:
 							 If you specify this (as a two-letter code), the tags will be checked
 							 using the language-specific files in the
 							 data/directory of the validator.""")
-	parser_convert.add_argument("--level", action="store", type=int, default=5, dest="level",
-							 help="Level 1: Test only CoNLL-U backbone. Level 2: UD format. Level 3: UD contents. Level 4: Language-specific labels. Level 5: Language-specific contents.")
+	parser_convert.add_argument("--level", action="store", type=int, choices=[1,2], default=1, dest="level",
+							 help="Level 1: Test only CoNLL-U backbone. Level 2: UD format.")
 	parser_convert.add_argument("--no-tree-text", action="store_false", default=True, dest="check_tree_text",
 							 help="Do not test tree text. For internal use only, this test is required and on by default.")
 	parser_convert.add_argument('--coref', action='store_true', default=False, dest='check_coref',
