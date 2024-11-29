@@ -24,7 +24,8 @@ classifiers = [
 ]
 dependencies = [
 	"argcomplete>=3",
-  "tqdm>=4.67.0"
+  "tqdm>=4.67.0",
+  "regex"
 ]
 version = "0.0.1"
 # dynamic = ["version"]
@@ -32,6 +33,12 @@ version = "0.0.1"
 
 [project.scripts]
 conll2ske = "conll2ske.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/conll2ske", "tools"]
+
+# [tool.hatch.build]
+# include = ["src/conll2ske", 'tools/']
 
 # [tool.hatch.version]
 # source = "vcs"
